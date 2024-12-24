@@ -11,7 +11,7 @@ export function LanguageList({ languages, removedCount }: LanguageListProps) {
           key={language}
           className={`language-item ${index < removedCount ? 'removed' : ''}`}
         >
-          {language}
+          {index < removedCount ? '💀' : language}
         </div>
       ))}
     </div>
