@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Thang30.github.io/assembly-endgame/",
+  "homepage": "https://Thang30.github.io/Assembly-Endgame/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
