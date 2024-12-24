@@ -13,6 +13,7 @@ interface GameBoardProps {
 
 export function GameBoard({ word }: GameBoardProps) {
   const [guessedLetters, setGuessedLetters] = useState<Set<string>>(new Set());
+  const [correctLetters, setCorrectLetters] = useState<Set<string>>(new Set());
   const [incorrectGuesses, setIncorrectGuesses] = useState(0);
 
   function handleLetterGuess(letter: string) {
@@ -20,7 +21,9 @@ export function GameBoard({ word }: GameBoardProps) {
     
     setGuessedLetters(prev => new Set([...prev, letter]));
     
-    if (!word.toLowerCase().includes(letter)) {
+    if (word.toLowerCase().includes(letter)) {
+      setCorrectLetters(prev => new Set([...prev, letter]));
+    } else {
       setIncorrectGuesses(prev => prev + 1);
     }
   }
@@ -44,6 +47,7 @@ export function GameBoard({ word }: GameBoardProps) {
       <Keyboard 
         onLetterGuess={handleLetterGuess}
         guessedLetters={guessedLetters}
+        correctLetters={correctLetters}
       />
     </div>
   );

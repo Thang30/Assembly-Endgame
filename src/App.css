@@ -115,10 +115,25 @@ h1 {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffd700;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.keyboard button.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.keyboard button.incorrect {
+  background-color: #f44336;
+  color: white;
 }
 
 .keyboard button:disabled {
-  opacity: 0.5;
+  opacity: 0.7;
   cursor: not-allowed;
 }
 
