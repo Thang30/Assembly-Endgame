@@ -48,3 +48,15 @@ export default tseslint.config({
   },
 })
 ```
+
+## Sound Setup
+
+The game requires sound files that are not included in the repository due to size constraints. 
+Add the following .wav files to the `public/sounds` directory:
+
+- correct.wav - Sound for correct letter guess
+- incorrect.wav - Sound for incorrect letter guess
+- win.wav - Sound for winning the game
+- lose.wav - Sound for losing the game
+
+You can use any .wav sound files of your choice, or find royalty-free sounds from sources like freesound.org.

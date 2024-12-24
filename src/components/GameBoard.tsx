@@ -60,10 +60,14 @@ export function GameBoard({ word, onReset }: GameBoardProps) {
   }
 
   function getDisplayWord() {
-    return word
-      .split('')
-      .map(letter => (guessedLetters.has(letter.toLowerCase()) ? letter : '_'))
-      .join(' ');
+    return word.split('').map((letter, index) => (
+      <div key={index} className="letter-slot">
+        <span className="letter">
+          {guessedLetters.has(letter.toLowerCase()) ? letter : ''}
+        </span>
+        <div className="letter-line"></div>
+      </div>
+    ));
   }
 
   return (
@@ -73,11 +77,15 @@ export function GameBoard({ word, onReset }: GameBoardProps) {
         removedCount={incorrectGuesses}
       />
       <div className="word-display">
-        <h2>{getDisplayWord()}</h2>
+        <div className="word-container">
+          {getDisplayWord()}
+        </div>
       </div>
       <StatusMessage 
         gameStatus={gameStatus}
         word={word}
+        incorrectGuesses={incorrectGuesses}
+        languages={PROGRAMMING_LANGUAGES}
       />
       <Keyboard 
         onLetterGuess={handleLetterGuess}

@@ -1,17 +1,27 @@
 interface StatusMessageProps {
   gameStatus: 'playing' | 'won' | 'lost';
   word: string;
+  incorrectGuesses: number;
+  languages: string[];
 }
 
-export function StatusMessage({ gameStatus, word }: StatusMessageProps) {
-  if (gameStatus === 'playing') return null;
+export function StatusMessage({ gameStatus, word, incorrectGuesses, languages }: StatusMessageProps) {
+  if (gameStatus === 'playing' && incorrectGuesses === 0) return null;
 
   return (
     <div className={`status-message ${gameStatus}`}>
-      {gameStatus === 'won' ? (
-        <p>Congratulations! You saved the programming world!</p>
+      {gameStatus === 'playing' ? (
+        <p>Farewell {languages[incorrectGuesses - 1]}</p>
+      ) : gameStatus === 'won' ? (
+        <>
+          <p>You win!</p>
+          <p>Well done! 🎉</p>
+        </>
       ) : (
-        <p>Game Over! The word was: <span className="revealed-word">{word}</span></p>
+        <>
+          <p>Game over!</p>
+          <p>You lose! Better start learning assembly 😂</p>
+        </>
       )}
     </div>
   );

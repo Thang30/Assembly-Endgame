@@ -5,7 +5,11 @@ interface KeyboardProps {
 }
 
 export function Keyboard({ onLetterGuess, guessedLetters, correctLetters }: KeyboardProps) {
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const rows = [
+    'QWERTYUIOP'.split(''),
+    'ASDFGHJKL'.split(''),
+    'ZXCVBNM'.split('')
+  ];
 
   function getButtonClass(letter: string) {
     const lowerLetter = letter.toLowerCase();
@@ -15,15 +19,19 @@ export function Keyboard({ onLetterGuess, guessedLetters, correctLetters }: Keyb
 
   return (
     <div className="keyboard">
-      {alphabet.map(letter => (
-        <button
-          key={letter}
-          onClick={() => onLetterGuess(letter.toLowerCase())}
-          disabled={guessedLetters.has(letter.toLowerCase())}
-          className={getButtonClass(letter)}
-        >
-          {letter}
-        </button>
+      {rows.map((row, i) => (
+        <div key={i} className="keyboard-row">
+          {row.map(letter => (
+            <button
+              key={letter}
+              onClick={() => onLetterGuess(letter.toLowerCase())}
+              disabled={guessedLetters.has(letter.toLowerCase())}
+              className={getButtonClass(letter)}
+            >
+              {letter}
+            </button>
+          ))}
+        </div>
       ))}
     </div>
   );
