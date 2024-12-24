@@ -5,7 +5,7 @@ interface StatusMessageProps {
   languages: string[];
 }
 
-export function StatusMessage({ gameStatus, word, incorrectGuesses, languages }: StatusMessageProps) {
+export function StatusMessage({ gameStatus, incorrectGuesses, languages }: StatusMessageProps) {
   if (gameStatus === 'playing' && incorrectGuesses === 0) return null;
 
   return (
