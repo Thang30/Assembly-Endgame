@@ -84,3 +84,30 @@ h1 {
   height: 2px;
   background-color: white;
 }
+
+.word-display {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.keyboard button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.keyboard button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

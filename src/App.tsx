@@ -1,21 +1,18 @@
 import { GameBoard } from './components/GameBoard'
 import './App.css'
 
-function App() {
-  // For testing purposes, we'll hardcode a word
-  // Later this will come from a word list
-  const word = "REFACTOR" 
+export function App() {
+  // For testing purposes - later this will be randomly selected
+  const testWord = "react";
 
   return (
     <div className="app">
-      <h1>Assembly: Endgame</h1>
+      <h1>Assembly Endgame</h1>
       <p className="subtitle">
-        Guess the word in under 8 attempts to keep the
-        programming world safe from Assembly!
+        Guess the word before all programming languages disappear! 
+        Each wrong guess removes a language, with Assembly being your last hope.
       </p>
-      <GameBoard word={word} />
+      <GameBoard word={testWord} />
     </div>
   )
 }
-
-export default App
