@@ -15,16 +15,32 @@ export function GameBoard({ word }: GameBoardProps) {
   const [guessedLetters, setGuessedLetters] = useState<Set<string>>(new Set());
   const [correctLetters, setCorrectLetters] = useState<Set<string>>(new Set());
   const [incorrectGuesses, setIncorrectGuesses] = useState(0);
+  const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'lost'>('playing');
+
+  function checkWinCondition(letters: Set<string>): boolean {
+    return word.toLowerCase().split('').every(letter => letters.has(letter));
+  }
 
   function handleLetterGuess(letter: string) {
-    if (guessedLetters.has(letter)) return;
+    if (guessedLetters.has(letter) || gameStatus !== 'playing') return;
     
-    setGuessedLetters(prev => new Set([...prev, letter]));
+    const newGuessedLetters = new Set([...guessedLetters, letter]);
+    setGuessedLetters(newGuessedLetters);
     
     if (word.toLowerCase().includes(letter)) {
-      setCorrectLetters(prev => new Set([...prev, letter]));
+      const newCorrectLetters = new Set([...correctLetters, letter]);
+      setCorrectLetters(newCorrectLetters);
+      
+      if (checkWinCondition(newCorrectLetters)) {
+        setGameStatus('won');
+      }
     } else {
-      setIncorrectGuesses(prev => prev + 1);
+      const newIncorrectGuesses = incorrectGuesses + 1;
+      setIncorrectGuesses(newIncorrectGuesses);
+      
+      if (newIncorrectGuesses >= PROGRAMMING_LANGUAGES.length) {
+        setGameStatus('lost');
+      }
     }
   }
 
