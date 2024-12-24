@@ -25,3 +25,6 @@ instructions
 *.njsproj
 *.sln
 *.sw?
+
+# Sound files
+public/sounds/*.wav
