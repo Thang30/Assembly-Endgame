@@ -1,62 +1,71 @@
-# React + TypeScript + Vite
+# Assembly Endgame
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A word-guessing game where you must guess programming-related words before all programming languages disappear! Each wrong guess removes a programming language, with Assembly being your last hope.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Experience the game live at [Assembly Endgame](https://thang30.github.io/Assembly-Endgame/)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Word guessing gameplay with programming-themed words
+- Visual representation of programming languages with their iconic colors
+- Sound effects for correct/incorrect guesses and game outcomes
+- Responsive keyboard interface
+- Animated language removal effects
+- Win/lose state management
 
-- Configure the top-level `parserOptions` property like this:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- React 18
+- TypeScript
+- Vite
+- CSS3 with animations
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Thang30/Assembly-Endgame.git
+cd Assembly-Endgame
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
 
-## Sound Setup
 
-The game requires sound files that are not included in the repository due to size constraints. 
-Add the following .wav files to the `public/sounds` directory:
 
-- correct.wav - Sound for correct letter guess
-- incorrect.wav - Sound for incorrect letter guess
-- win.wav - Sound for winning the game
-- lose.wav - Sound for losing the game
+3. Start the development server:
 
-You can use any .wav sound files of your choice, or find royalty-free sounds from sources like freesound.org.
+```bash
+npm run dev
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run deploy` - Deploy to GitHub Pages
+- `npm run lint` - Run ESLint
+
+## Game Rules
+
+1. A random programming-related word is selected
+2. Try to guess the word one letter at a time
+3. Each incorrect guess removes a programming language
+4. Game is won by guessing the word correctly
+5. Game is lost if all programming languages disappear
+
+## Contributing
+
+Feel free to submit issues and pull requests.
+
+## License
+
+[MIT License](LICENSE)
+

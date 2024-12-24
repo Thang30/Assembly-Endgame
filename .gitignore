@@ -28,4 +28,4 @@ instructions
 
 # Sound files
 public/sounds/*.wav
-public/sounds/*.mp3
+# public/sounds/*.mp3
