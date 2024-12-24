@@ -180,3 +180,38 @@ h1 {
 .reset-button:hover {
   background-color: #5a5a5a;
 }
+
+.status-message {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.status-message.won {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.status-message.lost {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.revealed-word {
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 0.1em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

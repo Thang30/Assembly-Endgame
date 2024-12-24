@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Keyboard } from './Keyboard';
 import { LanguageList } from './LanguageList';
+import { StatusMessage } from './StatusMessage';
 
 const PROGRAMMING_LANGUAGES = [
   'HTML', 'CSS', 'JavaScript', 'React', 
@@ -69,6 +70,10 @@ export function GameBoard({ word, onReset }: GameBoardProps) {
       <div className="word-display">
         <h2>{getDisplayWord()}</h2>
       </div>
+      <StatusMessage 
+        gameStatus={gameStatus}
+        word={word}
+      />
       <Keyboard 
         onLetterGuess={handleLetterGuess}
         guessedLetters={guessedLetters}
