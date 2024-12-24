@@ -151,18 +151,38 @@ h1 {
   padding: 0.3rem 0.8rem;
   border-radius: 12px;
   background-color: #3a3a3a;
-  transition: opacity 0.3s ease;
   font-size: 0.85rem;
   text-align: center;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 0.3rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
 .language-item.removed {
   opacity: 0.3;
   text-decoration: line-through;
+  transform: scale(0.8) rotate(-5deg);
+}
+
+@keyframes removeLanguage {
+  0% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(3deg);
+  }
+  100% {
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0.3;
+  }
+}
+
+.language-item.removed {
+  animation: removeLanguage 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .reset-button {
