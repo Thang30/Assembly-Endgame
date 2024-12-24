@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Keyboard } from './Keyboard';
 import { LanguageList } from './LanguageList';
 import { StatusMessage } from './StatusMessage';
+import { playSound } from '../constants/sounds';
 
 const PROGRAMMING_LANGUAGES = [
   'HTML', 'CSS', 'JavaScript', 'React', 
@@ -40,16 +41,20 @@ export function GameBoard({ word, onReset }: GameBoardProps) {
     if (word.toLowerCase().includes(letter)) {
       const newCorrectLetters = new Set([...correctLetters, letter]);
       setCorrectLetters(newCorrectLetters);
+      playSound('correct');
       
       if (checkWinCondition(newCorrectLetters)) {
         setGameStatus('won');
+        playSound('win');
       }
     } else {
       const newIncorrectGuesses = incorrectGuesses + 1;
       setIncorrectGuesses(newIncorrectGuesses);
+      playSound('incorrect');
       
       if (newIncorrectGuesses >= PROGRAMMING_LANGUAGES.length) {
         setGameStatus('lost');
+        playSound('lose');
       }
     }
   }
