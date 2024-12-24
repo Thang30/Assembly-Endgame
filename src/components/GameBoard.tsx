@@ -9,13 +9,22 @@ const PROGRAMMING_LANGUAGES = [
 
 interface GameBoardProps {
   word: string;
+  onReset: () => void;
 }
 
-export function GameBoard({ word }: GameBoardProps) {
+export function GameBoard({ word, onReset }: GameBoardProps) {
   const [guessedLetters, setGuessedLetters] = useState<Set<string>>(new Set());
   const [correctLetters, setCorrectLetters] = useState<Set<string>>(new Set());
   const [incorrectGuesses, setIncorrectGuesses] = useState(0);
   const [gameStatus, setGameStatus] = useState<'playing' | 'won' | 'lost'>('playing');
+
+  function resetGame() {
+    setGuessedLetters(new Set());
+    setCorrectLetters(new Set());
+    setIncorrectGuesses(0);
+    setGameStatus('playing');
+    onReset();
+  }
 
   function checkWinCondition(letters: Set<string>): boolean {
     return word.toLowerCase().split('').every(letter => letters.has(letter));
@@ -65,6 +74,11 @@ export function GameBoard({ word }: GameBoardProps) {
         guessedLetters={guessedLetters}
         correctLetters={correctLetters}
       />
+      {gameStatus !== 'playing' && (
+        <button onClick={resetGame} className="reset-button">
+          New Game
+        </button>
+      )}
     </div>
   );
 }
