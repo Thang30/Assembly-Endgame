@@ -38,20 +38,12 @@ npm install
 ```
 
 
-
 3. Start the development server:
 
 ```bash
 npm run dev
 ```
 
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run deploy` - Deploy to GitHub Pages
-- `npm run lint` - Run ESLint
 
 ## Game Rules
 
@@ -61,11 +53,7 @@ npm run dev
 4. Game is won by guessing the word correctly
 5. Game is lost if all programming languages disappear
 
-## Contributing
-
-Feel free to submit issues and pull requests.
 
 ## License
 
-[MIT License](LICENSE)
-
+MIT License
